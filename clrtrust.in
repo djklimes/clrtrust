@@ -634,6 +634,7 @@ $1"
             continue
         fi
         finger=${finger#SHA1 Fingerprint=}
+        finger=${finger#sha1 Fingerprint=}
         if ! is_root_ca "${f}" && [ $opt_force -ne 1 ]; then
             1>&2 cat <<EOF
 Certificate $f is not a Root CA. Use --force and proper judgement to enforce.
@@ -805,6 +806,7 @@ $1"
             continue
         fi
         finger=${finger#SHA1 Fingerprint=}
+        finger=${finger#sha1 Fingerprint=}
         printf "%s\t%s\n" "${f}" "${finger}"
     done >$out 2>$err
 
